@@ -24,10 +24,10 @@ public class App {
                 String name = resultset.getString("name");
                 int age = resultset.getInt("age");
                 double marks = resultset.getDouble("marks");
-                System.out.println("ID : "+ id );
-                System.out.println("NAME : "+ name );
-                System.out.println("AGE : "+ age );
-                System.out.println("MARKS : "+ marks );
+                System.out.println("ID : " + id);
+                System.out.println("NAME : " + name);
+                System.out.println("AGE : " + age);
+                System.out.println("MARKS : " + marks);
             }
 
         } catch (SQLException e) {
