@@ -1,7 +1,7 @@
 import java.sql.*;
 
-public class PreparedStatemetn {
-    
+public class Delete_Pre {
+
     private static final String url = "jdbc:mysql://localhost:3306/jdbc";
     private static final String username = "root";
     private static final String password = "Sunny#123";
@@ -14,28 +14,22 @@ public class PreparedStatemetn {
         }
 
         try {
-            // Statement statement = connection.createStatement();
-            // String query = "select * from students";
-            // ResultSet resultset = statement.executeQuery(query);
-
             Connection connection = DriverManager.getConnection(url, username, password);
 
-            String query = "INSERT INTO students(name,age,marks) VALUES (?,?,?)";
+            String query = String.format("DELETE FROM students WHERE id=?");
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
-            preparedStatement.setString(1, "Tony");
-            preparedStatement.setInt(2, 26);
-            preparedStatement.setDouble(3, 86.3);
+            preparedStatement.setInt(1, 5);
 
-            int rowAffected = preparedStatement.executeUpdate();
-
-            if (rowAffected > 0) {
-                System.out.println("UPDATE DATA SUCCFESSFULLY");
+            int rowaffected = preparedStatement.executeUpdate();
+            if (rowaffected > 0) {
+                System.out.println("DATA DELETE SUCCFESSFULLY");
             } else {
-                System.out.println("FAILED TO UPDATE");
+                System.out.println("FAILED TO DELETE");
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
     }
 }
