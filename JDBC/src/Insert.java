@@ -18,8 +18,7 @@ public class Insert {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
 
-            String query = String.format("INSERT INTO students(name,age,marks) VALUES ('%s', %o, %f)", "Rahul", 25,
-                    89.2);
+            String query = String.format("INSERT INTO students(name,age,marks) VALUES ('%s', %o, %f)", "Rahul", 25,89.2);
             int rowaffected = statement.executeUpdate(query);
             if (rowaffected > 0) {
                 System.out.println("DATA INSERTED SUCCFESSFULLY");
